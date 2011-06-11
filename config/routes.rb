@@ -1,4 +1,6 @@
 Base::Application.routes.draw do
+  devise_for :usuarios, :path => "usuarios", :path_names => { :sign_in => 'iniciar', :sign_out => 'salir', :password => 'contrasena', :confirmation => 'confirmacion', :unlock => 'desbloquear', :registration => 'registro', :sign_up => 'alta' }
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +50,7 @@ Base::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

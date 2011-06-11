@@ -9,6 +9,8 @@ gem 'rails', '3.0.8'
 gem 'pg'
 gem 'jquery-rails'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'watchr'
