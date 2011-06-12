@@ -1,4 +1,6 @@
 Base::Application.routes.draw do
+  resources :lugares
+
   devise_for :usuarios, :path => "usuarios", :path_names => { :sign_in => 'iniciar', :sign_out => 'salir', :password => 'contrasena', :confirmation => 'confirmacion', :unlock => 'desbloquear', :registration => 'registro', :sign_up => 'alta' }
   
   # The priority is based upon order of creation:
@@ -14,7 +16,7 @@ Base::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  resources :lugares, :path_names => { :new => 'nuevo' }
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -50,7 +52,7 @@ Base::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "welcome#index"
+  root :to => "principal#index"
 
   # See how all your routes lay out with "rake routes"
 

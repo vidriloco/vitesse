@@ -1,0 +1,78 @@
+body {
+	margin-top: 0px;
+}
+
+body, html, * html {
+	height: 100%;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+a { color: #E5E5E5; text-decoration: none }
+a:visited, a:hover { color: white; }
+a:hover { background-color:none; font-weight: bold }
+
+#notice {
+  color: #007B54;
+}
+
+#alert {
+  color: #7E1803;
+}
+
+
+.oculto { display:none }
+
+.header { 
+	padding: 10px 0 10px 10px;
+	background-color: black;
+	height: 30px;
+	color: white;
+}
+
+.subheader { 
+	padding: 4px 0 4px 10px;
+	background-color: #206794;
+	height: 25px;
+	color: white;
+}
+
+.header h1 { 
+	margin: 5px;
+	font-size: 25px;
+	color:#E79F14; 
+}
+
+.header .acciones a { 
+	color: white;
+	font-size: 10px;
+	font-weight: bold;
+}
+.header .acciones {
+	position: absolute;
+	width: 100px;
+	top: 10px;
+	right: 10px;
+	background-color: #292929;
+	padding: 2px 5px 5px 5px;
+	text-align: center;
+}
+
+.subheader .opciones a { 
+	background-color: #2273A5;
+	padding: 3px 8px 3px 8px;
+}
+
+.subheader .opciones a:hover { 
+	background-color:#4884AF;
+	color: white;
+}
+.subheader .opciones {
+	margin: 3px 0px 0px 20px;
+	font-size: 12px;
+	font-weight: bold;
+}

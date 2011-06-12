@@ -10,7 +10,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611042349) do
+ActiveRecord::Schema.define(:version => 20110612000234) do
+
+  create_table "lugares", :force => true do |t|
+    t.string   "nombre"
+    t.text     "detalles"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "correo"
+    t.integer  "telefono_uno"
+    t.integer  "telefono_dos"
+    t.string   "string"
+    t.string   "sitio_web"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lugares_tags", :id => false, :force => true do |t|
+    t.integer "lugar_id", :null => false
+    t.integer "tag_id",   :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "contenido"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "usuarios", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

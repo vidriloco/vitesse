@@ -1,0 +1,23 @@
+<%= render 'acciones_menu' %>
+
+<% if @lugares.empty? %>
+	<div class="lugares vacio">
+		<p>Por ahora no hay lugares registrados</p>
+	</div>
+	
+	<%= link_to 'Registra uno', new_lugar_path %>
+<% else %>
+	<h1>Listando lugares<h1>
+		
+	<%= link_to 'Más recientes', '#' %>	
+	
+	<div class="lugares lista">
+		<% @lugares.each do |lugar| %>
+			<%= lugar.nombre %>
+			<%= link_to 'ver en mapa', '#' %>
+			<%= link_to 'detalles', '#' %>
+		<% end %>
+	</div>
+	
+	<%= will_paginate @lugares, :previous_label => "Anterior", :next_label => "Siguiente" %>
+<% end %>

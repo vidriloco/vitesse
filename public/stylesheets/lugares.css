@@ -1,0 +1,15 @@
+.banda { height: 10px }
+
+.banda, .lugares .acciones { background-color:#72B6F6 }
+
+.lugares .acciones {
+	padding: 10px;
+	width: 300px;
+}
+
+.lugares .acciones .reg-nuevo {
+	background-color: black;
+	font-weight: bold;
+	padding: 5px 8px;
+	font-size: 12px;
+}

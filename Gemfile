@@ -8,8 +8,9 @@ gem 'rails', '3.0.8'
 # gem 'sqlite3'
 gem 'pg'
 gem 'jquery-rails'
-
+gem 'will_paginate', '~> 3.0.pre2'
 gem 'devise'
+gem 'delorean'
 
 group :development, :test do
   gem 'rspec-rails'
