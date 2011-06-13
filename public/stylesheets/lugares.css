@@ -2,6 +2,14 @@
 
 .banda, .lugares .acciones { background-color:#72B6F6 }
 
+.lugares .contenedor {
+	padding: 20px;
+}
+
+.lugares .contenedor > * {
+	margin-left:30px;
+}
+
 .lugares .acciones {
 	padding: 10px;
 	width: 300px;
@@ -12,4 +20,27 @@
 	font-weight: bold;
 	padding: 5px 8px;
 	font-size: 12px;
+}
+
+.field label {
+	font-size: 12px;
+	font-weight: bold
+}
+
+.field input, .field textarea {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 400px;
+    border: 1px solid #8496ba;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    min-height: 1px;
+    z-index: 999;
+    margin: 5px 0 8px 0;
+    padding: 5px 8px;
+    background-color: #fff;
+    list-style-type: none;
+    clear: left;
 }

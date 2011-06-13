@@ -6,8 +6,16 @@ describe LugaresController do
       { :get => "/lugares/nuevo" }.should route_to(:controller => "lugares", :action => "new")
     end
     
-    it "hace match de /lugares/index con accion #index en controller :lugares" do
+    it "hace match con get sobre /lugares/index con accion #index en controller :lugares" do
       { :get => "/lugares" }.should route_to(:controller => "lugares", :action => "index")
+    end
+    
+    it "hace match con get sobre /lugares/1 con accion #show en controller :lugares" do
+      { :get => "/lugares/1" }.should route_to(:controller => "lugares", :action => "show", :id => "1")
+    end
+    
+    it "hace match con post sobre /lugares con accion #create en controller :lugares" do
+      { :post => "/lugares" }.should route_to(:controller => "lugares", :action => "create")
     end
   end
 end

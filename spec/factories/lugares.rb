@@ -9,5 +9,6 @@ Factory.define(:lugar) do |l|
   l.telefono_uno "564738322"
   l.telefono_dos ""
   l.correo "daikoku@condesa.com"
+  l.coordenadas Point.from_lon_lat(19.323, 34.223, 4326)
   l.tags {|t| [t.association(:restaurante), t.association(:bici_e)] }
 end

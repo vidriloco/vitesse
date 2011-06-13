@@ -16,8 +16,7 @@ feature "Listado de lugares: " do
     
     scenario "debo ver un mensaje adecuado que me lo notifique" do  
       page.should have_content('Por ahora no hay lugares registrados')
-    
-      find_link('Registra uno').click()
+      click_link('Registra uno nuevo')
       current_path.should == new_lugar_path
     end
   end

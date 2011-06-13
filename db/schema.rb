@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(:version => 20110612000234) do
     t.string   "sitio_web"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.point    "coordenadas",  :limit => nil, :srid => 4326
   end
+
+  add_index "lugares", ["coordenadas"], :name => "coords_index", :spatial => true
 
   create_table "lugares_tags", :id => false, :force => true do |t|
     t.integer "lugar_id", :null => false

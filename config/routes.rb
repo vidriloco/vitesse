@@ -1,5 +1,4 @@
 Base::Application.routes.draw do
-  resources :lugares
 
   devise_for :usuarios, :path => "usuarios", :path_names => { :sign_in => 'iniciar', :sign_out => 'salir', :password => 'contrasena', :confirmation => 'confirmacion', :unlock => 'desbloquear', :registration => 'registro', :sign_up => 'alta' }
   
@@ -17,6 +16,7 @@ Base::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :lugares, :path_names => { :new => 'nuevo' }
+  resources :tags
   # Sample resource route with options:
   #   resources :products do
   #     member do

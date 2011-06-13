@@ -13,4 +13,8 @@ module AcceptanceHelpers
     end
     page.execute_script "$('ul.token-input-list-facebook li.token-input-input-token-facebook :text').autotype('{{enter}}');"
   end
+  
+  def simula_click_gmaps(lat, lon)
+    page.execute_script("geo.simulaSeleccionEnMapa(#{lat},#{lon});")
+  end
 end

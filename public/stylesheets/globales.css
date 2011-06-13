@@ -14,7 +14,7 @@ body, p, ol, ul, td {
 
 a { color: #E5E5E5; text-decoration: none }
 a:visited, a:hover { color: white; }
-a:hover { background-color:none; font-weight: bold }
+a:hover { background-color:none }
 
 #notice {
   color: #007B54;
@@ -75,4 +75,9 @@ a:hover { background-color:none; font-weight: bold }
 	margin: 3px 0px 0px 20px;
 	font-size: 12px;
 	font-weight: bold;
+}
+
+.boton-auxiliar {
+	background-color: #ADADAD;
+	padding: 5px 8px;
 }

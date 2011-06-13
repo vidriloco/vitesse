@@ -1,7 +1,9 @@
+<%= javascript_include_tag 'geo' %>
+
 <%= form_for(@lugar) do |f| %>
   <% if @lugar.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@lugar.errors.count, "error") %> prohibited this lugar from being saved:</h2>
+      <h2>Wikicleta no pudo registrar este lugar debido a:</h2>
 
       <ul>
       <% @lugar.errors.full_messages.each do |msg| %>
@@ -10,40 +12,39 @@
       </ul>
     </div>
   <% end %>
+	
+	<div id="mapa-editable"><p></p></div>
+	
+	<%= hidden_field_tag 'coordenadas[lat]', @lugar.coordenadas.nil? ? "" : @lugar.coordenadas.lat %>
+	<%= hidden_field_tag 'coordenadas[lon]', @lugar.coordenadas.nil? ? "" : @lugar.coordenadas.lon %>
 
   <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :size => "12" %>
   </div>
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.label :detalles %><br />
+    <%= f.text_area :detalles %>
   </div>
   <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
   </div>
   <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook %>
   </div>
   <div class="field">
-    <%= f.label :integer %><br />
-    <%= f.text_field :integer %>
+    <%= f.label :sitio_web %><br />
+    <%= f.text_field :sitio_web %>
   </div>
-  <div class="field">
-    <%= f.label :integer %><br />
-    <%= f.text_field :integer %>
-  </div>
-  <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
-  </div>
-  <div class="field">
-    <%= f.label :string %><br />
-    <%= f.text_field :string %>
-  </div>
+  
+	<div class="field">
+    <%= f.label :tags, 'Palabras Clave' %>
+    <%= f.text_field :tags_lista, "data-pre" => @lugar.tags.map(&:expone_atributos).to_json %>    
+	</div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Publicar' %>
   </div>
 <% end %>

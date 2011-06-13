@@ -5,7 +5,17 @@ $.extend({
 	estaPresente: function(dom) {
 		return $(dom).length;
 	}
+	
+	/**,incluir: function(jsname,pos) {
+		var th = document.getElementsByTagName(pos)[0];
+		var s = document.createElement('script');
+		s.setAttribute('type','text/javascript');
+		s.setAttribute('src',jsname);
+		th.appendChild(s);
+	}*/
 });
+
+
 
 var geo = {
 	inicializaMapa: function(dom, opts) {
@@ -13,7 +23,7 @@ var geo = {
 			center: new google.maps.LatLng(parseFloat(19.4), parseFloat(-99.15)),
 			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-      streetViewControl: false,
+      streetViewControl: true,
       mapTypeControl: false,
 			navigationControl: false,
 			navigationControlOptions: {
@@ -33,7 +43,7 @@ var geo = {
 					lon: event.latLng.lng()
 				});
 				marcador=geo.ponMarcadorCentrado(mapa, marcador);
-				geo.ponDireccionEn(mapa, '#direccion-en-mapa p');
+				geo.ponDireccionEn(mapa, '#mapa-editable p');
 			}
     });
 
@@ -76,5 +86,22 @@ var geo = {
         $(lonDom).val(event.latLng.lng());
         ponDireccionEn(mapa, "#geografia_direccion");
     });
+	},
+	
+	leeCoordenadasDesde: function(latDom, lonDom) {
+		if($(latDom).val() != "" && $(lonDom).val() != "") {
+			geo.simulaSeleccionEnMapa($(latDom).val(), $(lonDom).val());
+		}
+	},
+	simulaSeleccionEnMapa: function(lat, lon) {
+		$('#coordenadas_lat').val(lat);
+    $('#coordenadas_lon').val(lon);
+    
+		geo.posiciona(mapa, {
+			lat: lat,
+			lon: lon
+		});
+		marcador=geo.ponMarcadorCentrado(mapa, marcador);
+		geo.ponDireccionEn(mapa, '#mapa-editable p');
 	}
 }

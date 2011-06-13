@@ -1,11 +1,9 @@
-<%= render 'acciones_menu' %>
-
 <% if @lugares.empty? %>
 	<div class="lugares vacio">
 		<p>Por ahora no hay lugares registrados</p>
 	</div>
 	
-	<%= link_to 'Registra uno', new_lugar_path %>
+	<%= link_to 'Registra uno nuevo', new_lugar_path, :class => "boton-auxiliar" %>
 <% else %>
 	<h1>Listando lugares<h1>
 		

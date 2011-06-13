@@ -53,6 +53,8 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
   # reload factories
+  load "#{Rails.root}/config/routes.rb" 
+  
   Factory.factories.clear
   Factory.definition_file_paths = Dir[File.join(Rails.root, "spec", "factories")]
   Factory.find_definitions.each do |location|

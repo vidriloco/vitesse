@@ -10,9 +10,13 @@ class CreateLugares < ActiveRecord::Migration
       t.integer :telefono_dos
       t.string :string
       t.string :sitio_web
-
+      t.point :coordenadas, :srid => 4326, :with_z => false      
+      
       t.timestamps
     end
+    
+    execute "CREATE INDEX coords_index ON lugares USING GIST(coordenadas);"
+    
   end
 
   def self.down
