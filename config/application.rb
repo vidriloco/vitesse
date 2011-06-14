@@ -32,6 +32,7 @@ module Base
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w(jquery funciones base)
+    config.action_view.javascript_expansions[:extensions] = %w(jquery.charcounter)
     config.action_view.javascript_expansions[:testing] = %w(jquery.autotype)
     
     config.action_view.stylesheet_expansions[:defaults] = %w(elastic elastic.print globales)

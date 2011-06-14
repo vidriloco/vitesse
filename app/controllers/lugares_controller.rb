@@ -1,7 +1,9 @@
 # encoding: utf-8
 class LugaresController < ActionController::Base
   protect_from_forgery
-
+  
+  before_filter :authenticate_usuario!, :only => [:new, :create]
+    
   def new
     @lugar = Lugar.new
   end

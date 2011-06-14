@@ -48,6 +48,15 @@ $(document).ready(function() {
 			});
 		}
 		
+		if($.estaPresente('.charcounter-250')) {
+			$(".charcounter-250").charCounter(250, {
+					container: "#charCount",
+	        format: "%1 caracteres restantes",
+	        delay: 100,
+	        pulse: false
+	    });
+		}
+		
 		if($.estaPresente('#mapa-editable')) {
 			
 			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '#mapa-editable p');

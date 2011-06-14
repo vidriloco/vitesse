@@ -23,8 +23,8 @@
     <%= f.text_field :nombre, :size => "12" %>
   </div>
   <div class="field">
-    <%= f.label :detalles %><br />
-    <%= f.text_area :detalles %>
+    <%= f.label :detalles %>(<span id="charCount"></span>)<br />
+    <%= f.text_area :detalles, :class=> 'charcounter-250' %>
   </div>
   <div class="field">
     <%= f.label :twitter %><br />
@@ -46,5 +46,6 @@
 
   <div class="actions">
     <%= f.submit 'Publicar' %>
+		<%= link_to 'Cancelar', url %>
   </div>
 <% end %>

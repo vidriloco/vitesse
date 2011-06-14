@@ -4,7 +4,4 @@
 <p>Usar mí ubicación actual</p>
 <%= link_to 'Determinar', '#', :class => 'pregunta-pos' %>
 
-<%= render 'form' %>
-
-
-<%= link_to 'Back', lugares_path %>
+<%= render :partial => 'form', :locals => {:url => lugares_path} %>

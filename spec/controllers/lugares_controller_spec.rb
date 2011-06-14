@@ -31,6 +31,7 @@ describe LugaresController do
     
     before(:each) do
       @lugar = mock_model(Lugar).as_null_object
+      sign_in Factory(:usuario)
     end
     
     it "asigna un nuevo lugar a @lugar" do
@@ -57,9 +58,8 @@ describe LugaresController do
     
     before(:each) do
       @lugar = Factory.build(:lugar)
-      #usuario = Factory(:usuario)
-      #usuario.confirm! 
-      #sign_in(usuario)
+      
+      sign_in Factory(:usuario)
     end
     
     describe "con parámetros válidos" do

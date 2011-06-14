@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'acceptance/acceptance_helper'
+include Warden::Test::Helpers  
 
 feature "Listado de lugares: " do
 
@@ -10,6 +11,7 @@ feature "Listado de lugares: " do
   describe "No habiendo lugares registrados" do
     
     before(:each) do
+      login_as(Factory(:usuario))
       find_link('Lugares').click()
       current_path.should == lugares_path
     end

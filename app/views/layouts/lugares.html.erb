@@ -4,7 +4,7 @@
   		<title>Wikicleta : Rueda por tu ciudad</title>
   		<%= stylesheet_link_tag :defaults, :tokeninput, 'lugares'  %>
 			
-  		<%= javascript_include_tag :defaults, 'jquery.tokeninput' %>
+  		<%= javascript_include_tag :defaults, 'jquery.tokeninput', :extensions %>
 			<% if Rails.env=="test"%>
 				<%= javascript_include_tag :testing %>
 			<% end %>
