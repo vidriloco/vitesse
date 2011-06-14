@@ -13,39 +13,56 @@
     </div>
   <% end %>
 	
-	<div id="mapa-editable"><p></p></div>
+	<div class="field">
+		<label>Ubicación</label><br />
+		<div class="guess-location radio-5">
+			<span class="titulo">Selecciona su ubicación haciendo click en el mapa</span><br/><br/>
+			<span>Usar mí ubicación actual<span class="determinator"><%= link_to 'Determinar', '#', :class => 'pregunta-pos boton amarillo' %></span></span>
+		</div>
+		<div id="mapa-editable"><p></p></div>
+	</div>
+	
 	
 	<%= hidden_field_tag 'coordenadas[lat]', @lugar.coordenadas.nil? ? "" : @lugar.coordenadas.lat %>
 	<%= hidden_field_tag 'coordenadas[lon]', @lugar.coordenadas.nil? ? "" : @lugar.coordenadas.lon %>
 
+  
+	<div class="content on-2 columns">
+		<div class="column field">
+	    <%= f.label :nombre %><br />
+	    <%= f.text_field :nombre, :size => 40 %>
+	  </div>
+  	<div class="column field">
+    	<%= f.label :twitter %><br />
+    	<%= f.text_field :twitter %>
+  	</div>
+	</div>
+
   <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, :size => "12" %>
+    <%= f.label :detalles %>&nbsp;&nbsp;(<span id="charCount"></span>)<br />
+    <%= f.text_area :detalles, :rows => 7, :cols => 84, :class=> 'charcounter-250' %>
   </div>
-  <div class="field">
-    <%= f.label :detalles %>(<span id="charCount"></span>)<br />
-    <%= f.text_area :detalles, :class=> 'charcounter-250' %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br />
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :sitio_web %><br />
-    <%= f.text_field :sitio_web %>
-  </div>
+
+	<div class="content on-2 columns">
+		<div class="column field">
+    	<%= f.label :facebook %><br />
+    	<%= f.text_field :facebook %>
+  	</div>
+
+	  <div class="column field">
+	    <%= f.label :sitio_web %><br />
+	    <%= f.text_field :sitio_web %>
+	  </div>
+	</div>
+
   
 	<div class="field">
     <%= f.label :tags, 'Palabras Clave' %>
     <%= f.text_field :tags_lista, "data-pre" => @lugar.tags.map(&:expone_atributos).to_json %>    
 	</div>
-	<br/>
-  <div class="actions">
-		<%= link_to 'Cancelar', url, :class => 'boton sobrio' %>
-		<%= f.submit 'Publicar' %>
+	
+  <div class="form-actions">
+		<span><%= link_to 'Cancelar', url, :class => 'boton sobrio' %>
+		<%= f.submit 'Publicar', :class => 'as-link boton sobrio largo azul' %></span>
   </div>
 <% end %>

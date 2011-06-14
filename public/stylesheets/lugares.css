@@ -37,21 +37,20 @@
 }
 
 .field input, .field textarea {
-    overflow: hidden; 
-    height: auto !important; 
-    height: 1%;
-    width: 400px;
-    border: 1px solid #8496ba;
-    cursor: text;
-    font-size: 12px;
-    font-family: Verdana;
-    min-height: 1px;
-    z-index: 999;
-    margin: 5px 0 8px 0;
-    padding: 5px 8px;
-    background-color: #fff;
-    list-style-type: none;
-    clear: left;
+	overflow: hidden; 
+	height: auto !important; 
+	height: 1%;
+  border: 1px solid #8496ba;
+  cursor: text;
+  font-size: 12px;
+  font-family: Verdana;
+  min-height: 1px;
+  z-index: 999;
+  margin: 5px 0 8px 0;
+  padding: 5px 8px;
+  background-color: #fff;
+  list-style-type: none;
+  clear: left;
 }
 
 .lugaes .redes-sociales {
@@ -119,3 +118,17 @@
 .lugares .pagination em, .lugares .pagination span, .lugares .pagination a  { font-weight: bold; }
 .lugares .pagination a { color:#406DBC; }
 .lugares .pagination a:hover { text-decoration: underline; }
+
+.lugares .guess-location {
+	padding: 15px;
+	background-color:#CFCFCF;
+	width: 330px;
+}
+
+.lugares .guess-location .determinator { float:right }
+
+.field #mapa-editable { 
+	width: 350px;
+	padding: 10px;
+}
+.field #mapa-editable p { font-style: italic }
