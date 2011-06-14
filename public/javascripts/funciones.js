@@ -79,21 +79,12 @@ var geo = {
 		});
 	},
 	
-	seleccionarPunto: function(mapa, latDom, lonDom) {
-		google.maps.event.addListener(mapa, "click", function(event) {
-				geo.posiciona(mapa, { zoom: 15 });
-        $(latDom).val(event.latLng.lat());
-        $(lonDom).val(event.latLng.lng());
-        ponDireccionEn(mapa, "#geografia_direccion");
-    });
-	},
-	
-	leeCoordenadasDesde: function(latDom, lonDom) {
+	leeCoordenadasDesdeHacia: function(latDom, lonDom, domDestino) {
 		if($(latDom).val() != "" && $(lonDom).val() != "") {
-			geo.simulaSeleccionEnMapa($(latDom).val(), $(lonDom).val());
+			geo.simulaSeleccionEnMapa($(latDom).val(), $(lonDom).val(), domDestino);
 		}
 	},
-	simulaSeleccionEnMapa: function(lat, lon) {
+	simulaSeleccionEnMapa: function(lat, lon, dom) {
 		$('#coordenadas_lat').val(lat);
     $('#coordenadas_lon').val(lon);
     
@@ -102,6 +93,6 @@ var geo = {
 			lon: lon
 		});
 		marcador=geo.ponMarcadorCentrado(mapa, marcador);
-		geo.ponDireccionEn(mapa, '#mapa-editable p');
+		geo.ponDireccionEn(mapa, dom);
 	}
 }

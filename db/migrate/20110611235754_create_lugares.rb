@@ -8,7 +8,6 @@ class CreateLugares < ActiveRecord::Migration
       t.string :correo
       t.integer :telefono_uno
       t.integer :telefono_dos
-      t.string :string
       t.string :sitio_web
       t.point :coordenadas, :srid => 4326, :with_z => false      
       

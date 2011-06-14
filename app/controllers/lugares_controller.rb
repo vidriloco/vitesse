@@ -11,7 +11,7 @@ class LugaresController < ActionController::Base
   end
   
   def show
-    
+    @lugar = Lugar.find(params[:id], :include => :tags)
   end
   
   def create

@@ -1,3 +1,7 @@
+body {
+	background-color:#999;
+}
+
 .banda { height: 10px }
 
 .banda, .lugares .acciones { background-color:#72B6F6 }
@@ -11,7 +15,7 @@
 }
 
 .lugares .acciones {
-	padding: 10px;
+	padding: 5px 10px 15px 10px;
 	width: 300px;
 }
 
@@ -19,7 +23,7 @@
 	background-color: black;
 	font-weight: bold;
 	padding: 5px 8px;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .field label {
@@ -43,4 +47,26 @@
     background-color: #fff;
     list-style-type: none;
     clear: left;
+}
+
+.redes-sociales {
+	padding: 10px 3px 5px 3px;
+	background-color: black;
+	width: 350px;
+	min-width: 250px;
+	max-width: 450px;
+	text-align:center;
+	color: white;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.redes-sociales .facebook {
+	margin-left: 10px;
+}
+
+.redes-sociales span {
+	position: relative;
+	bottom: 10px;
+	margin-left: 7px;
 }

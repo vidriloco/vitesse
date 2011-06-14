@@ -5,7 +5,8 @@ class DeviseCreateUsuarios < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
-
+      t.string :nombre
+      t.integer :permisos
       # t.encryptable
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both

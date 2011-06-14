@@ -15,6 +15,10 @@ module AcceptanceHelpers
   end
   
   def simula_click_gmaps(lat, lon)
-    page.execute_script("geo.simulaSeleccionEnMapa(#{lat},#{lon});")
+    page.execute_script("geo.simulaSeleccionEnMapa(#{lat},#{lon}, '#mapa-editable p');")
+  end
+  
+  def find_not_link(locator)
+    !find(:xpath, XPath::HTML.link(locator))
   end
 end

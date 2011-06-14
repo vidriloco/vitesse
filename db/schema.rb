@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110612000234) do
     t.string   "correo"
     t.integer  "telefono_uno"
     t.integer  "telefono_dos"
-    t.string   "string"
     t.string   "sitio_web"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20110612000234) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "nombre"
+    t.integer  "permisos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

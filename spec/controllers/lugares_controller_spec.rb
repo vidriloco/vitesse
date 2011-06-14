@@ -40,6 +40,19 @@ describe LugaresController do
     end
   end
   
+  describe "GET show" do
+    
+    before(:each) do
+      @lugar = Factory.build(:lugar)
+    end
+    
+    it "asigna el lugar buscado a @lugar" do
+      Lugar.stub(:find).with("37", :include => :tags) { @lugar }
+      get :show, :id => "37"
+      assigns(:lugar).should be(@lugar)
+    end
+  end
+  
   describe "POST create" do
     
     before(:each) do

@@ -11,6 +11,16 @@ $(document).ready(function() {
 		$('#notice').delay(2700).fadeOut('slow');
     $('#alert').delay(2700).fadeOut('slow');
 		
+		if($.estaPresente('.bloque .titulo')) {
+			$('.bloque .titulo a').click(function() {
+				if($(this).parent().next().hasClass('oculto')) {
+					$(this).parent().next().removeClass('oculto');
+				} else {
+					$(this).parent().next().addClass('oculto');
+				}
+			});
+		}
+		
 		if($.estaPresente('#map_canvas')) {
 			mapa = geo.inicializaMapa('map_canvas', {
 				backgroundColor: 'black',
@@ -30,15 +40,23 @@ $(document).ready(function() {
 			});  
 		}
 		
+		if($.estaPresente('#mapa-pasivo')) {
+			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '.direccion');
+			geo.posiciona(mapa, {zoom: 17});
+			$('.pon-en-pos').click(function() {
+				geo.posiciona(mapa, {lon: marcador.getPosition().lng(), lat: marcador.getPosition().lat()});
+			});
+		}
+		
 		if($.estaPresente('#mapa-editable')) {
 			
-			geo.leeCoordenadasDesde("#coordenadas_lat", "#coordenadas_lon");
+			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '#mapa-editable p');
 			
 			//determine if the handset has client side geo location capabilities
 			$('.pregunta-pos').click(function() {
 				if(geo_position_js.init()){
 			   	geo_position_js.getCurrentPosition(function(p) {
-						geo.simulaSeleccionEnMapa(p.coords.latitude, p.coords.longitude);
+						geo.simulaSeleccionEnMapa(p.coords.latitude, p.coords.longitude, '#mapa-editable p');
 					}, function() {
 						alert("Ocurrió un error al intentar obtener tú ubicación. Seleccionala del mapa por favor ó intenta de nuevo.");
 					}, {enableHighAccuracy:true});
