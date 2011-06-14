@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% content_for :acciones do %>
+	<%= link_to 'Registrar nuevo', new_lugar_path, :class => "boton control" %>
+<% end %>
+
 <h1><%= @lugar.nombre %></h1>
 <div class="tags">
 	<% @lugar.tags.each do |tag| %>

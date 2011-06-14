@@ -43,9 +43,9 @@
     <%= f.label :tags, 'Palabras Clave' %>
     <%= f.text_field :tags_lista, "data-pre" => @lugar.tags.map(&:expone_atributos).to_json %>    
 	</div>
-
+	<br/>
   <div class="actions">
-    <%= f.submit 'Publicar' %>
-		<%= link_to 'Cancelar', url %>
+		<%= link_to 'Cancelar', url, :class => 'boton sobrio' %>
+		<%= f.submit 'Publicar' %>
   </div>
 <% end %>

@@ -1,19 +1,41 @@
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', root_path, :class => "boton azul" %>
+<% end %>
+
 <% if @lugares.empty? %>
-	<div class="lugares vacio">
+	<div class="vacio">
 		<p>Por ahora no hay lugares registrados</p>
+		<%= link_to 'Registra uno', new_lugar_path, :class => "boton azul" %>
 	</div>
 	
-	<%= link_to 'Registra uno nuevo', new_lugar_path, :class => "boton-auxiliar" %>
 <% else %>
-	<h1>Listando lugares<h1>
-		
-	<%= link_to 'Más recientes', '#' %>	
+	<% content_for :acciones do %>
+		<%= link_to 'Registrar nuevo', new_lugar_path, :class => "boton control" %>
+	<% end %>
 	
-	<div class="lugares lista">
+	<div id="mapa-pasivo"></div>
+	<div class="content on-2 columns same-height">
+		<div class="column fixed" style="width: 60%">
+			<h1>Listando lugares<h1>
+		</div>
+		<div class="column fixed auxiliares" style="width: 35%">
+			<%= link_to 'Más recientes', '#', :class => 'boton sobrio negro reciente-act' %>	
+			
+		</div>
+	</div>
+	
+	<div class="listado recientes">
 		<% @lugares.each do |lugar| %>
-			<%= lugar.nombre %>
-			<%= link_to 'ver en mapa', '#' %>
-			<%= link_to 'detalles', '#' %>
+			<div class="lugar radio-5">
+				<span class="nombre"><%= lugar.nombre %></span>
+				<span class="controles">
+					<%= link_to 'ver en mapa', '#', :class => 'boton amarillo pos-en-mapa' %>
+					<%= link_to 'detalles', lugar_path(lugar), :class => 'boton azul' %>
+				</span>
+				
+				<%= hidden_field_tag "lat", lugar.coordenadas.lat %>
+				<%= hidden_field_tag "lon", lugar.coordenadas.lon %>
+			</div>
 		<% end %>
 	</div>
 	

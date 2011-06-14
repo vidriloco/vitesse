@@ -1,13 +1,14 @@
-<div class="header">
-	<h1>Wikicleta</h1>
-	
-	<div class="acciones">
-		<%= link_to 'Iniciar Sesión', '#' %>
-	</div>
-</div>
-
-<div class="subheader">
-	<div class="opciones">
-		<%= link_to 'Lugares', lugares_path, :class => 'lugares' %>
-	</div>
+<div id="header">
+  
+  <ul id="cuenta" class="radio-7">
+    <div class="oculto" id="con-sesion"></div>
+    <li id="login"><%= link_to 'Iniciar sesión', '#' %></li>
+  </ul>
+  <ul id="secciones">
+    <li><%= link_to 'Lugares', lugares_path, :class => "explorar" %></li>
+		<li><%= link_to 'Rutas', '', :class => "explorar" %></li>
+		<li><%= link_to 'Bicibus', '', :class => "explorar" %></li>
+		<li><%= link_to 'Rodadas', '', :class => "explorar" %></li>
+		<li><%= link_to 'Comunidad', '', :class => "explorar" %></li>
+  </ul>
 </div>

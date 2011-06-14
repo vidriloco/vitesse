@@ -11,6 +11,18 @@ $(document).ready(function() {
 		$('#notice').delay(2700).fadeOut('slow');
     $('#alert').delay(2700).fadeOut('slow');
 		
+		if($.estaPresente('.reciente-act')) {
+			$('.reciente-act').click(function() {
+				if($('.lugares .recientes').hasClass('oculto')) {
+					$('.lugares .recientes').removeClass('oculto');
+					$(this).addClass('negro');
+				} else {
+					$('.lugares .recientes').addClass('oculto');
+					$(this).removeClass('negro');
+				}
+			});
+		}
+		
 		if($.estaPresente('.bloque .titulo')) {
 			$('.bloque .titulo a').click(function() {
 				if($(this).parent().next().hasClass('oculto')) {
@@ -41,11 +53,22 @@ $(document).ready(function() {
 		}
 		
 		if($.estaPresente('#mapa-pasivo')) {
-			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '.direccion');
-			geo.posiciona(mapa, {zoom: 17});
-			$('.pon-en-pos').click(function() {
-				geo.posiciona(mapa, {lon: marcador.getPosition().lng(), lat: marcador.getPosition().lat()});
-			});
+			if($.estaPresente('.pon-en-pos')) {
+				geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '.direccion');
+				geo.posiciona(mapa, {zoom: 17});
+				$('.pon-en-pos').click(function() {
+					geo.posiciona(mapa, {lon: marcador.getPosition().lng(), lat: marcador.getPosition().lat()});
+				});
+			}
+			
+			if($.estaPresente('.pos-en-mapa')) {
+				$('.pos-en-mapa').click(function() {
+					var lat = $(this).parent().siblings('#lat').val();
+					var lon = $(this).parent().siblings('#lon').val();
+					geo.posiciona(mapa, {zoom: 17, lon: lon, lat : lat});
+					geo.ponMarcadorCentrado(mapa, marcador);
+				});
+			}
 		}
 		
 		if($.estaPresente('.charcounter-250')) {

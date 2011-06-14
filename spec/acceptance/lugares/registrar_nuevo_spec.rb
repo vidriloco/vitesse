@@ -20,8 +20,8 @@ feature "Registro de lugares: " do
     
     scenario "aunque si no estoy logeado tendré que estarlo" do
       click_link('Lugares')
-  
-      click_link('Registrar nuevo')
+      page.should have_content('Por ahora no hay lugares registrados')
+      click_link('Registra uno')
       current_path.should == new_usuario_session_path
     end
     
@@ -32,16 +32,20 @@ feature "Registro de lugares: " do
         login_as(@usuario)
       end
       
-      scenario "y decidir no registrar nada" do
+      scenario "puedo regresar al listado de lugares sin haber registrado nada" do
         visit new_lugar_path
         click_link('Cancelar')
+        current_path.should == lugares_path
+        
+        visit new_lugar_path
+        click_link('Atrás')
         current_path.should == lugares_path
       end
       
       scenario "y guardar un lugar si tengo todos los campos requeridos", :js => true do
         click_link('Lugares')
     
-        click_link('Registrar nuevo')
+        click_link('Registra uno')
         current_path.should == new_lugar_path
       
         page.should have_content('Nuevo lugar')

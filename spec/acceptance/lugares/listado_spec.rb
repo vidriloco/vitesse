@@ -16,9 +16,10 @@ feature "Listado de lugares: " do
       current_path.should == lugares_path
     end
     
-    scenario "debo ver un mensaje adecuado que me lo notifique" do  
+    scenario "debo ver un mensaje adecuado que me lo notifique" do
+      find_link('Atrás')  
       page.should have_content('Por ahora no hay lugares registrados')
-      click_link('Registra uno nuevo')
+      click_link('Registra uno')
       current_path.should == new_lugar_path
     end
   end
@@ -49,10 +50,14 @@ feature "Listado de lugares: " do
     end
       
     after(:each) { back_to_the_present }
-      
+    
+    scenario "puedo ver los detalles de cada uno" do
+      click_link('detalles')
+      current_path.should == lugar_path(Lugar.last)
+    end
 
     scenario "debo ver un grupo que contiene a los 7 más recientes con paginacion de 5 bloques" do 
-        
+       
       page.should have_content('Listando lugares')
         
       find_link('Más recientes')
@@ -69,6 +74,8 @@ feature "Listado de lugares: " do
       find_link('Siguiente').click()
       page.should have_content('Lilly')
       page.should have_content('Casa del Tío Toño')
+      click_link('Atrás') 
+      current_path.should == root_path
     end
       
     scenario "los veo en un grupo que contiene a los más populares"
