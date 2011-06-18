@@ -1,18 +1,6 @@
 <%= javascript_include_tag 'geo' %>
 
 <%= form_for(@lugar) do |f| %>
-  <% if @lugar.errors.any? %>
-    <div id="error_explanation" class="radio-5">
-      <h2>Wikicleta no pudo registrar este lugar debido a:</h2>
-
-      <ul>
-      <% @lugar.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	
 	<div class="field">
 		<label>Ubicación</label><br />
 		<div class="guess-location radio-5">
@@ -63,6 +51,6 @@
 	
   <div class="form-actions">
 		<span><%= link_to 'Cancelar', url, :class => 'boton sobrio' %>
-		<%= f.submit 'Publicar', :class => 'as-link boton largo azul' %></span>
+		<%= f.submit verbo_boton_aceptar, :class => 'as-link boton largo azul' %></span>
   </div>
 <% end %>

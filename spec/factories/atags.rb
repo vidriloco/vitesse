@@ -7,3 +7,7 @@ end
 Factory.define(:bici_e, :class => Tag) do |l|
   l.contenido "bici estacionamiento"
 end
+
+Factory.define(:palabra_clave, :class => Tag) do |l|
+  l.contenido ""
+end

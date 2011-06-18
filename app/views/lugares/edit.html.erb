@@ -1,6 +1,11 @@
-<h1>Editing lugar</h1>
+<h1>Modificar lugar</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'compartidos/errores_forma', 
+					 :locals => {:mensaje => 'Wikicleta no pudo guardar los cambios para este lugar debido a:', 
+											 :objeto => @lugar} %>
 
-<%= link_to 'Show', @lugar %> |
-<%= link_to 'Back', lugares_path %>
+<%= render :partial => 'form', :locals => { :url => lugar_path(@lugar), :verbo_boton_aceptar => "Guardar" } %>
+
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+<% end %>

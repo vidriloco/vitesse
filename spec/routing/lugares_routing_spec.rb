@@ -10,6 +10,14 @@ describe LugaresController do
       { :get => "/lugares" }.should route_to(:controller => "lugares", :action => "index")
     end
     
+    it "hace match con get sobre /lugares/1 con accion #edit en controller :lugares" do
+      { :get => "/lugares/1/edit" }.should route_to(:controller => "lugares", :action => "edit", :id => "1")
+    end
+    
+    it "hace match con get sobre /lugares/1 con accion #update en controller :lugares" do
+      { :put => "/lugares/1" }.should route_to(:controller => "lugares", :action => "update", :id => "1")
+    end
+    
     it "hace match con get sobre /lugares/1 con accion #show en controller :lugares" do
       { :get => "/lugares/1" }.should route_to(:controller => "lugares", :action => "show", :id => "1")
     end

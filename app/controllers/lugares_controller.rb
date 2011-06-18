@@ -2,7 +2,7 @@
 class LugaresController < ActionController::Base
   protect_from_forgery
   
-  before_filter :authenticate_usuario!, :only => [:new, :create, :confirm_destroy, :destroy]
+  before_filter :authenticate_usuario!, :except => [:index, :show]
     
   def new
     @lugar = Lugar.new
@@ -39,5 +39,22 @@ class LugaresController < ActionController::Base
   def confirm_destroy
     @lugar=Uslu.alterable(:lugar => params[:id], :usuario => current_usuario.id)
     redirect_to(lugar_path(params[:id]), :alert => ('No tienes permisos suficientes para eliminar este lugar')) && return if @lugar.nil?
+  end
+  
+  def edit
+    @lugar = Lugar.find(params[:id], :include => :tags)
+  end
+  
+  def update
+    @lugar = Lugar.find(params[:id])
+    @lugar.aplica_geo(params[:coordenadas])
+    
+    respond_to do |format|
+      if @lugar.update_attributes(params[:lugar])
+        format.html { redirect_to(lugar_url(@lugar), :notice => 'El lugar ha sido modificado correctamente') }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
   end
 end
