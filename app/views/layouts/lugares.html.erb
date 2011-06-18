@@ -15,10 +15,13 @@
 	</head>
 	<body>
 		<%= render 'compartidos/headers' %>
-	
+		
 		<div class="unit on-2 columns same-height">
 			<div class="lugares column fixed" style="width: 50%;">
 				<%= render 'acciones_menu' %>
+				<div class="messages-and-alerts">
+					<%= yield :messages_and_alerts %>
+				</div>
 				<div class="contenedor">
 					<%= yield %>
 				</div>

@@ -1,60 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<% content_for :acciones do %>
-	<%= link_to 'Registrar nuevo', new_lugar_path, :class => "boton control" %>
+<% content_for :messages_and_alerts do %>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
 <% end %>
 
 <h1><%= @lugar.nombre %></h1>
-<div class="tags">
+
+<div class="tags radio-5">
 	<% @lugar.tags.each do |tag| %>
-		<span><%= tag.contenido %></span>
+		<span class="radio-5"><%= tag.contenido %></span>
 	<% end %>
 </div>
 
-<p class="detalles"><%= @lugar.detalles %></p>
+<div class="bubble radio-7-top">
+	<%= render 'basic_details' %>
+</div>
+<div class="bubble-base">
+	<%= link_to 'Descripción', '#' , :class => "radio-5" %>
+	<%= link_to 'Fotos', '#' , :class => "radio-5" %>
+	<%= link_to 'Comentarios', '#' , :class => "radio-5" %>
+</div>
 
-<div id="mapa-pasivo"></div>
-<p class="ubicacion"><b>Ubicación: </b><%= link_to 'Ver en el mapa', '#', :class => 'pon-en-pos' %></p>
-<p class="direccion">
-	<%= hidden_field_tag 'coordenadas[lat]', @lugar.coordenadas.lat %>
-	<%= hidden_field_tag 'coordenadas[lon]', @lugar.coordenadas.lon %>
-</p>
-	
-<% unless @lugar.facebook.blank? && @lugar.twitter.blank? %>
-	<div class="redes-sociales">
-		<% unless @lugar.twitter.blank? %>
-			<%= image_tag('twitter.png', :class => "twitter") %><span><%= @lugar.twitter %></span>
-		<% end %>
-		<% unless @lugar.facebook.blank? %>
-			<%= image_tag('facebook.png', :class => "facebook") %><span><%= @lugar.facebook %></span>
-		<% end %>
-	</div>
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+	<%= link_to 'Modificar', edit_lugar_path(@lugar), :class => "boton sobrio" %>
+	<%= link_to 'Eliminar', confirm_destroy_lugar_path(@lugar), :class => "boton rojo" %>
 <% end %>
-
-<div class="bloque">
-	<div class="titulo"><%= link_to 'Datos de Contacto', '#' %></div>
-	<div class="contenido oculto">
-		<p><b>Teléfono(s): </b>
-			<% if @lugar.telefono_uno.blank? && @lugar.telefono_dos.blank? %>
-				<i>Ninguno ha sido registrado</i>
-			<% else %>
-				<%= "#{@lugar.telefono_uno}  #{@lugar.telefono_dos}" %>
-			<% end %>
-		</p>
-		<p><b>Sitio web: </b><%= @lugar.sitio_web.blank? ? "<i>No está registrado aún</i>".html_safe : @lugar.sitio_web %></p>
-		<p><b>Correo: </b><%= @lugar.correo.blank? ? "<i>No está registrado aún</i>".html_safe : @lugar.correo %></p>
-	</div>
-</div>
-
-<div class="bloque">
-	<div class="titulo"><%= link_to 'Fotos', '#' %></div>
-	<div class="contenido">
-		<div class="controles"><%= link_to 'Agregar foto', '#' %></div>
-		
-	</div>
-</div>
-
-
-<%= link_to 'Modificar', edit_lugar_path(@lugar) %>
-
-<%= link_to 'Volver', lugares_path %>

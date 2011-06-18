@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110612000234) do
+ActiveRecord::Schema.define(:version => 20110616061419) do
 
   create_table "lugares", :force => true do |t|
     t.string   "nombre"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(:version => 20110612000234) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "uslus", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "lugar_id"
+    t.integer  "permisos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uslus", ["usuario_id", "lugar_id"], :name => "uslus_unique_identificador", :unique => true
 
   create_table "usuarios", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

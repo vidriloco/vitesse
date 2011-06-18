@@ -15,7 +15,12 @@ Base::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :lugares, :path_names => { :new => 'nuevo' }
+  resources :lugares, :path_names => { :new => 'nuevo', :confirm_destroy => 'eliminar' } do
+    member do
+      get 'confirm_destroy'
+    end
+  end
+  
   resources :tags
   # Sample resource route with options:
   #   resources :products do

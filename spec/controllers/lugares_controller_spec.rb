@@ -54,12 +54,54 @@ describe LugaresController do
     end
   end
   
+  describe "GET confirm_destroy" do
+    
+    before(:each) do
+      @lugar = Factory(:lugar)
+      @user = Factory(:usuario)
+      sign_in @user
+    end
+    
+    it "sends me to confirmation removal page for a place given I am logged in and I am virtually one owner of it" do
+      Uslu.should_receive(:alterable).with(:usuario => 1, :lugar => "23") { @lugar }
+      get :confirm_destroy, :id => "23"
+      assigns(:lugar).should be(@lugar)
+    end
+    
+    it "sends me back to place page given I am not allowed to destroy the record" do
+      Uslu.should_receive(:alterable).with(:usuario => 1, :lugar => "23") { nil }
+      get :confirm_destroy, :id => "23"
+      response.should redirect_to(lugar_path(23))
+    end
+    
+  end
+  
+  describe "DELETE destroy" do
+    
+    before(:each) do
+      @lugar = Factory(:lugar)
+    end
+    
+    it "destroys the requested place" do
+      Lugar.stub(:find).with("37") { @lugar }
+      @lugar.should_receive(:destroy)
+      delete :destroy, :id => "37"
+    end
+
+    it "redirects to the list of places" do
+      Lugar.stub(:find) { @lugar }
+      delete :destroy, :id => "1"
+      response.should redirect_to(lugares_url)
+    end
+  end
+  
+  
   describe "POST create" do
     
     before(:each) do
       @lugar = Factory.build(:lugar)
-      
-      sign_in Factory(:usuario)
+      @usuario = Factory(:usuario)
+      sign_in @usuario
     end
     
     describe "con parámetros válidos" do
@@ -71,6 +113,7 @@ describe LugaresController do
       it "asigna un nuevo lugar a @lugar" do
         Lugar.stub(:new).with('correct' => 'params') { @lugar }
         @lugar.should_receive(:aplica_geo).with({"lat" => "19.45", "lon" => "-99.23"})
+        Uslu.should_receive(:puede_alterar_a)
         
         post :create, :lugar => {'correct' => 'params'}, :coordenadas => {:lat => "19.45", :lon => "-99.23"}
         assigns(:lugar).should be(@lugar)

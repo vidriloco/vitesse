@@ -2,6 +2,9 @@
 class Lugar < ActiveRecord::Base
   has_and_belongs_to_many :tags
   
+  has_many :uslus
+  has_many :usuarios, :through => :uslus
+  
   validates_presence_of :nombre, :detalles
   validate :presencia_de_tags
   validate :tiene_una_ubicacion

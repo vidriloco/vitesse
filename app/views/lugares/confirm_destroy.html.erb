@@ -1,0 +1,19 @@
+<div class="confirmacion-de-eliminacion">
+	<h1><%= @lugar.nombre %></h1>
+	<div class="direccion"></div>
+	
+	<%= hidden_field_tag 'coordenadas[lat]', @lugar.coordenadas.lat %>
+	<%= hidden_field_tag 'coordenadas[lon]', @lugar.coordenadas.lon %>
+	
+	
+	<p class="pregunta">¿Realmente deseas eliminar este lugar?</p>
+	
+	<div class="content on-2 columns controles">
+		<div class="column">
+			<%= link_to 'No', lugar_path(@lugar), :class => "boton largo negro no" %>
+		</div>
+		<div class="column">
+			<%= button_to 'Si', lugar_path(@lugar), :method => :delete, :class => "as-link boton largo rojo" %>
+		</div>
+	</div>
+</div>

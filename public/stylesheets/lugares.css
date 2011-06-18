@@ -14,8 +14,8 @@
 }
 
 .lugares h1 {
-	font-size: 28px;
-	font-family: Gill Sans, Gill Sans MT, sans-serif;
+	font: bold 28px "Droid Sans", "Lucida Grande", Verdana, sans-serif;
+
 }
 
 .lugares .acciones a { margin-right: 10px }
@@ -53,34 +53,8 @@
   clear: left;
 }
 
-.lugaes .redes-sociales {
-	padding: 10px 3px 5px 3px;
-	background-color: black;
-	width: 350px;
-	min-width: 250px;
-	max-width: 450px;
-	text-align:center;
-	color: white;
-	font-weight: bold;
-	font-size: 11px;
-}
-
-.lugares .redes-sociales .facebook {
-	margin-left: 10px;
-}
-
-.lugares .redes-sociales span {
-	position: relative;
-	bottom: 10px;
-	margin-left: 7px;
-}
-
 .lugares .auxiliares {
 	margin-top: 28px;
-}
-
-.lugares .auxiliares a {
-	float:right;
 }
 
 .lugares .listado {
@@ -102,12 +76,13 @@
 	margin-left: 5px;
 }
 
-.lugares .listado .lugar span.controles a {
+.lugares .listado .lugar span.controles a,
+.lugares .bloque .titulo a {
 	margin-right: 10px;
 }
-.lugares .listado .lugar span.controles {
-	float: right;
-}
+.lugares .listado .lugar span.controles, 
+.lugares .auxiliares a,
+.lugares .guess-location .pon-en-pos { float: right; }
 
 .lugares .pagination {
 	width: 30%;
@@ -118,6 +93,11 @@
 .lugares .pagination em, .lugares .pagination span, .lugares .pagination a  { font-weight: bold; }
 .lugares .pagination a { color:#406DBC; }
 .lugares .pagination a:hover { text-decoration: underline; }
+
+.lugares p.detalles {
+	margin-top: 20px;
+	font-size: 15px;
+}
 
 .lugares .guess-location {
 	padding: 15px;
@@ -132,3 +112,102 @@
 	padding: 10px;
 }
 .field #mapa-editable p { font-style: italic }
+
+.lugares .tags {
+	margin: 0 auto 28px auto;
+	max-width: 88%;
+	height: 20px;
+}
+
+.lugares .tags span {
+	padding: 6px;
+	background-color:#EBEBEB;
+	border: 1px solid #C5C5C5;
+}
+
+.lugares .bubble-base, .lugares .bubble {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+.lugares .bubble {
+	border: 3px solid rgba(46, 86, 124, 0.3);
+	background-color: rgba(46, 86, 124, 0.3);
+}
+
+.lugares .bubble-base a:hover { background-color: #515151; }
+.lugares .bubble-base a {
+	vertical-align: -70%;
+	font-weight: bold;
+	padding: 8px;
+	background-color: #494949;
+	font-size: 14px;
+	margin-left: 15px;
+}
+
+.lugares .bubble-base {
+	overflow: hidden;
+	background-color: #3A3A3A;
+	padding: 10px;
+	height: 40px;
+	-moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
+  -khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.6);
+}
+
+.lugares .bubble div.block:hover { background-color: rgba(46, 86, 124, 0.3); }
+.lugares .bubble div.block {
+	padding: 20px;
+}
+
+.lugares .bubble div.details:hover { background-color: rgba(46, 86, 124, 0.6); color: white; }
+
+
+.lugares .bubble div div {
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.lugares .bubble div.block span {
+	margin-right: 20px;
+	vertical-align: 50%;
+}
+
+.lugares .bubble div.block img {
+	margin-right: 10px;
+}
+
+.color-de-confirmacion-de-eliminacion { background-color: #222; }
+.lugares .confirmacion-de-eliminacion {
+	margin-top: 25%;
+	text-align: center;
+	color:#7E7E7E;
+}
+
+.lugares .confirmacion-de-eliminacion .pregunta {
+	color: #225699;
+	font-weight: bold;
+}
+
+.lugares .confirmacion-de-eliminacion .direccion {
+	width: 60%;
+	margin: 0px auto 40px auto;
+}
+
+.lugares .confirmacion-de-eliminacion h1 {
+	color: rgba(0,0,0,0.6);
+	text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+	font-size: 45px;
+	margin-bottom: 10px;
+}
+.lugares .confirmacion-de-eliminacion .controles {
+	width: 200px;
+	margin: 10px auto 0px auto;
+}
+
+.lugares .confirmacion-de-eliminacion .controles .no {
+	margin-top: 2px;
+}

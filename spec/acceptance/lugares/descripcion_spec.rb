@@ -32,14 +32,12 @@ feature "Detalles de lugares: " do
       find_link('Ver en el mapa')
       find(:css, ".direccion").text.should_not be_blank
       
-      within(:css, ".redes-sociales") do
-        find(:css, ".twitter")
-        page.should have_content("@daikokuCondesa")
-        find(:css, ".facebook")
-        page.should have_content("daikoku")
-      end 
-      page.should have_content('Datos de Contacto')
       
+      find(:css, ".twitter")
+      page.should have_content("@daikokuCondesa")
+      find(:css, ".facebook")
+      page.should have_content("daikoku")
+            
       page.should have_content('Sitio web:')
       page.should have_content('www.lacebollamorada.com')
       page.should have_content('Teléfono(s):')
@@ -48,10 +46,11 @@ feature "Detalles de lugares: " do
       page.should have_content('Correo:')
       page.should have_content('atencion@cebollamorada.com')
       
-      page.should have_content('Fotos')
-      find_link('Agregar foto')
+      find_link('Descripción')
+      find_link('Fotos')
+      find_link('Comentarios')
       
-      click_link('Volver')
+      click_link('Atrás')
       current_path.should == lugares_path
     end
     
@@ -61,7 +60,8 @@ feature "Detalles de lugares: " do
       @lugar.save
       visit lugar_path(@lugar)
       
-      page.should have_no_css('.redes-sociales')
+      page.should have_no_css('.twitter')
+      page.should have_no_css('.facebook')
     end
     
     it "puedo ver su descripción parcial cuando está algún campo de las redes sociales" do
@@ -70,11 +70,9 @@ feature "Detalles de lugares: " do
       @lugar.save
       visit lugar_path(@lugar)
       
-      within(:css, ".redes-sociales") do
-        find(:css, ".twitter")
-        page.should have_content("@daikokuCondesa")
-        page.should have_no_css('.facebook')
-      end
+      find(:css, ".twitter")
+      page.should have_content("@daikokuCondesa")
+      page.should have_no_css('.facebook')
     end
     
     it "puedo ver su descripción parcial cuando faltan campos de contacto" do

@@ -4,6 +4,7 @@ require 'acceptance/helpers'
 include AcceptanceHelpers 
 include Warden::Test::Helpers  
 
+#TODO: Horarios
 feature "Registro de lugares: " do
 
   background do

@@ -2,7 +2,7 @@
 
 <%= form_for(@lugar) do |f| %>
   <% if @lugar.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="radio-5">
       <h2>Wikicleta no pudo registrar este lugar debido a:</h2>
 
       <ul>
@@ -28,11 +28,11 @@
 
   
 	<div class="content on-2 columns">
-		<div class="column field">
+		<div class="column field elastic">
 	    <%= f.label :nombre %><br />
-	    <%= f.text_field :nombre, :size => 40 %>
+	    <%= f.text_field :nombre, :size => 35 %>
 	  </div>
-  	<div class="column field">
+  	<div class="column field elastic">
     	<%= f.label :twitter %><br />
     	<%= f.text_field :twitter %>
   	</div>
@@ -63,6 +63,6 @@
 	
   <div class="form-actions">
 		<span><%= link_to 'Cancelar', url, :class => 'boton sobrio' %>
-		<%= f.submit 'Publicar', :class => 'as-link boton sobrio largo azul' %></span>
+		<%= f.submit 'Publicar', :class => 'as-link boton largo azul' %></span>
   </div>
 <% end %>

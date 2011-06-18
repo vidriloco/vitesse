@@ -8,8 +8,15 @@ var mapa;
 var marcador;
 
 $(document).ready(function() {
-		$('#notice').delay(2700).fadeOut('slow');
-    $('#alert').delay(2700).fadeOut('slow');
+		
+		if($.estaPresente('.messages-and-alerts')) {
+			if($('.messages-and-alerts p').text() != "") {
+				var klass = $('.messages-and-alerts p').attr('class');
+				$('.messages-and-alerts').addClass(klass);
+				$('.messages-and-alerts').fadeIn().delay(4000).fadeOut('slow');
+			}
+		}	
+		
 		
 		if($.estaPresente('.reciente-act')) {
 			$('.reciente-act').click(function() {
@@ -97,5 +104,11 @@ $(document).ready(function() {
 			   	alert("No fue posible obtener tu ubicación de manera automática. Seleccionala del mapa por favor.");
 				}
 			});
+		}
+		
+		if($.estaPresente('.confirmacion-de-eliminacion')) {
+			$(document.body).addClass('color-de-confirmacion-de-eliminacion');
+			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '.confirmacion-de-eliminacion .direccion');
+			geo.posiciona(mapa, {zoom: 17});
 		}
 });
