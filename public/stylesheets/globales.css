@@ -143,8 +143,8 @@ a:hover { background-color:none }
 .negro:hover					{ background-color: #545357; }
 .rosa, .rosa:visited	{ background-color: #e22092; }
 .rosa:hover					{ background-color: #c81e82; }
-.green.boton, .green.boton:visited	{ background-color: #91bd09; }
-.green.boton:hover				        { background-color: #749a02; }
+.verde, .verde:visited	{ background-color: #91bd09; }
+.verde:hover				        { background-color: #749a02; }
 .rojo, .rojo:visited		{ background-color: #e62727; }
 .rojo:hover					{ background-color: #cf2525; }
 .orange.boton, .orange.boton:visited	{ background-color: #ff5c00; }

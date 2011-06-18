@@ -4,7 +4,13 @@
 	</div>
   <ul id="cuenta" class="radio-7">
     <div class="oculto" id="con-sesion"></div>
-    <li id="login"><%= link_to 'Iniciar sesión', '#' %></li>
+    <li id="login">
+			<% if usuario_signed_in? %>
+				<%= link_to 'Cerrar sesión', destroy_usuario_session_path %>
+			<% else %>
+				<%= link_to 'Iniciar sesión', new_usuario_session_path %>
+			<% end %>
+		</li>
   </ul>
   <ul id="secciones">
     <li><%= link_to 'Lugares', lugares_path, :class => "explorar" %></li>
