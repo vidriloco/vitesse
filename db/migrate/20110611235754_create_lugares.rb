@@ -14,7 +14,7 @@ class CreateLugares < ActiveRecord::Migration
       t.timestamps
     end
     
-    execute "CREATE INDEX coords_index ON lugares USING GIST(coordenadas);"
+    execute "CREATE INDEX geom ON lugares USING GIST(coordenadas);"    
     
   end
 

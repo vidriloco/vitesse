@@ -2,7 +2,7 @@
 class LugaresController < ActionController::Base
   protect_from_forgery
   
-  before_filter :authenticate_usuario!, :except => [:index, :show]
+  before_filter :authenticate_usuario!, :except => [:index, :show, :busqueda, :busqueda_resultados]
     
   def new
     @lugar = Lugar.new
@@ -22,7 +22,7 @@ class LugaresController < ActionController::Base
 
     respond_to do |format|
       if @lugar.save
-        Uslu.puede_alterar_a(current_usuario, @lugar.id)
+        Uslu.puede_alterar_a(current_usuario.id, @lugar.id)
         format.html { redirect_to(@lugar, :notice => 'El lugar ha sido añadido correctamente') }
       else
         format.html { render :action => "new" }
@@ -38,7 +38,7 @@ class LugaresController < ActionController::Base
   
   def confirm_destroy
     @lugar=Uslu.alterable(:lugar => params[:id], :usuario => current_usuario.id)
-    redirect_to(lugar_path(params[:id]), :alert => ('No tienes permisos suficientes para eliminar este lugar')) && return if @lugar.nil?
+    redirect_to(lugar_path(params[:id]), :alert => ('No tienes permisos suficientes para eliminar este lugar')) if @lugar.nil?
   end
   
   def edit
@@ -56,5 +56,12 @@ class LugaresController < ActionController::Base
         format.html { render :action => "edit" }
       end
     end
+  end
+  
+  def busqueda
+  end
+  
+  def busqueda_resultados
+    @lugares = Lugar.busca(params[:busqueda], params[:page])
   end
 end

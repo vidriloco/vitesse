@@ -1,6 +1,10 @@
-<% content_for :messages_and_alerts do %>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+<%= content_for :messages_and_alerts do %>
+	<% unless notice.blank? %>
+		<p class="notice"><%= notice %></p>
+	<% end %>
+	<% unless alert.blank? %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
 <% end %>
 
 <h1><%= @lugar.nombre %></h1>

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20110616061419) do
     t.point    "coordenadas",  :limit => nil, :srid => 4326
   end
 
-  add_index "lugares", ["coordenadas"], :name => "coords_index", :spatial => true
+  add_index "lugares", ["coordenadas"], :name => "geom", :spatial => true
 
   create_table "lugares_tags", :id => false, :force => true do |t|
     t.integer "lugar_id", :null => false

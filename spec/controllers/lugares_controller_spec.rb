@@ -212,5 +212,28 @@ describe LugaresController do
       end
     end
     
+    describe "BUSCAR post" do
+      
+      before(:each) do
+        @lugar = Factory(:lugar)
+      end
+      
+      describe "buscando en base a un campo" do
+      
+        it "nombre : encuentra resultados" do
+          Lugar.should_receive(:busca).with({ 'nombre' => 'alguno' }, 1) { [@lugar] }
+          post :busqueda_resultados, :busqueda => { 'nombre' => 'alguno' } , :page => 1
+          assigns(:lugares).should == [@lugar]
+        end
+        
+      end
+      
+      it "despliega un mismo template siempre" do
+        Lugar.stub(:busca)
+        post :busqueda_resultados
+        response.should render_template("busqueda_resultados")
+      end
+    end
+     
   end
 end

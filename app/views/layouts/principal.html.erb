@@ -10,10 +10,11 @@
 	<body>
 	
 	<%= render 'compartidos/headers' %>
-	<div class="banda"></div>
 	<div id="map_canvas" class="column fixed" style="width:100%; height:400px;"></div>
 	
 	<%= yield %>
 
 	</body>
+	
+	<%= javascript_tag("$(document.body).addClass('fondo-obscuro');") %>
 </html>

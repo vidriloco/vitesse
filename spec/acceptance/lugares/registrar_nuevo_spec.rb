@@ -65,6 +65,7 @@ feature "Registro de lugares: " do
         fill_in('Facebook', :with => 'cebollaMorada')
       
         fill_token_input_field('Palabras Clave', :with => 'restaurante')
+        fill_token_input_field('Palabras Clave', :with => 'comida')
       
         simula_click_gmaps(19.42007620847585, -99.25376930236814)
         sleep(3)
@@ -74,6 +75,10 @@ feature "Registro de lugares: " do
       
         page.should have_content('El lugar ha sido añadido correctamente')
         current_path.should == lugar_path(Lugar.last)
+        
+        page.should have_content('La Cebolla Morada')
+        page.should have_content('comida')
+        
       end
 
 =begin    scenario "y guardar un lugar si tengo todos los campos requeridos y elijo determinar mi ubicación al browser", :js => true do

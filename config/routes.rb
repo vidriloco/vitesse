@@ -19,6 +19,11 @@ Base::Application.routes.draw do
     member do
       get 'confirm_destroy'
     end
+    
+    collection do
+      get 'busqueda'
+      post 'busqueda_resultados'
+    end
   end
   
   resources :tags

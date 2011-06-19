@@ -33,5 +33,13 @@ describe LugaresController do
     it "hace match con post sobre /lugares con accion #destroy en controller :lugares" do
       { :delete => "/lugares/1" }.should route_to(:controller => "lugares", :action => "destroy", :id => "1")
     end
+    
+    it "hace match con get sobre /lugares/busqueda con accion #busqueda en controller :lugares" do
+      { :get => "/lugares/busqueda" }.should route_to(:controller => "lugares", :action => "busqueda")
+    end
+    
+    it "hace match con post sobre /lugares/busqueda con accion #buscar en controller :lugares" do
+      { :post => "/lugares/busqueda_resultados" }.should route_to(:controller => "lugares", :action => "busqueda_resultados")
+    end
   end
 end

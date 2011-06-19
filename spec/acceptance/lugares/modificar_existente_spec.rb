@@ -57,6 +57,7 @@ feature "Modificación de lugares: " do
         end
         
         fill_token_input_field('Palabras Clave', :with => 'punto de reunion ciclista')
+        fill_token_input_field('Palabras Clave', :with => 'comida')
         
         simula_click_gmaps(19.42007620847585, -99.35376930236814)
         sleep(3)
@@ -66,6 +67,9 @@ feature "Modificación de lugares: " do
       
         page.should have_content('El lugar ha sido modificado correctamente')
         current_path.should == lugar_path(Lugar.last)
+        
+        page.should have_content('La Cebolla Morada')
+        page.should have_content('comida')
       end
 
 =begin    scenario "y guardar un lugar si tengo todos los campos requeridos y elijo determinar mi ubicación al browser", :js => true do

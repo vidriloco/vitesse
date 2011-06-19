@@ -180,7 +180,6 @@
 	margin-right: 10px;
 }
 
-.color-de-confirmacion-de-eliminacion { background-color: #222; }
 .lugares .confirmacion-de-eliminacion {
 	margin-top: 25%;
 	text-align: center;
@@ -210,4 +209,24 @@
 
 .lugares .confirmacion-de-eliminacion .controles .no {
 	margin-top: 2px;
+}
+
+.lugares .busqueda {
+	background-color: #C2DCE2;
+	width: 70%;
+	margin: 10% auto 0px auto;
+	padding: 25px;
+}
+
+.lugares .busqueda .field {
+	margin-bottom: 15px;
+}
+
+.lugares .busqueda .bloque {
+	background-color: #D7E2D8;
+	padding: 15px;
+}
+
+.lugares .busqueda .busqueda-mapa {
+	float:right;
 }

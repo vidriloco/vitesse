@@ -1,0 +1,26 @@
+<h1>Resultados de la búsqueda (<%= pluralize(@lugares.size, 'resultado') %>)</h1>
+
+<div id="mapa-pasivo"></div>
+
+<% if @lugares.empty? %>
+	<div class="vacio">
+		<p>No se encontraron lugares que satisfagan los parámetros de búsqueda dados</p>
+		<%= link_to 'Nueva búsqueda', busqueda_lugares_path, :class => "boton verde" %>
+	</div>
+<% else %>
+	<div class="listado">
+		<%= render @lugares %>
+	</div>
+	
+	<% content_for :acciones do %>
+		<%= link_to 'Nueva búsqueda', busqueda_lugares_path, :class => "boton verde" %>
+	<% end %>
+	
+	<%= will_paginate @lugares, :previous_label => "Anterior", :next_label => "Siguiente" %>
+	
+<% end %>
+
+
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+<% end %>

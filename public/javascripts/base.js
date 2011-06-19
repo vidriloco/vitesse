@@ -47,9 +47,21 @@ $(document).ready(function() {
 			});
 		}
 		
+		if($.estaPresente('#busqueda_tags')) {
+			$("#busqueda_tags").tokenInput("/tags.json", {
+				crossDomain: false,
+				theme: 'facebook',
+				preventDuplicates: true,
+				noResultsText: 'No hay resultados que mostrar',
+				hintText: 'Escribe un término de búsqueda',
+				searchingText: 'Buscando...'
+			});  
+		}
+		
 		if($.estaPresente('#lugar_tags_lista')) {
 			$("#lugar_tags_lista").tokenInput("/tags.json", {
 				prePopulate: $("#lugar_tags_lista").data("pre"),
+				allowCustomEntry: true,
 				crossDomain: false,
 				theme: 'facebook',
 				preventDuplicates: true,
@@ -107,8 +119,18 @@ $(document).ready(function() {
 		}
 		
 		if($.estaPresente('.confirmacion-de-eliminacion')) {
-			$(document.body).addClass('color-de-confirmacion-de-eliminacion');
+			$(document.body).addClass('fondo-obscuro');
 			geo.leeCoordenadasDesdeHacia("#coordenadas_lat", "#coordenadas_lon", '.confirmacion-de-eliminacion .direccion');
 			geo.posiciona(mapa, {zoom: 17});
+		}
+		
+		if($.estaPresente('.busqueda-mapa')) {
+			$('.busqueda-mapa').click(function() {
+				var limites = mapa.getBounds();
+				var no = limites.getNorthEast();
+				var so = limites.getSouthWest();
+				$('#busqueda_coordenadas_so').val(so.lat() + "," + so.lng());
+				$('#busqueda_coordenadas_no').val(no.lat() + "," + no.lng());
+			});
 		}
 });
