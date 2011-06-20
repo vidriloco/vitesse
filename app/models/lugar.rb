@@ -98,7 +98,7 @@ class Lugar < ActiveRecord::Base
     lat_no, lon_no = coordenadas[:no].split(',').map { |n| n.to_f }
     
     # Empezando en (0,0) en sentido de las manecillas del reloj
-    Polygon.from_coordinates([[[lon_so, lat_no], [lon_no, lat_no], [lon_no, lat_so], [lon_so, lat_so]]],4326)
+    Polygon.from_coordinates([[[lon_so, lat_no], [lon_no, lat_no], [lon_no, lat_so], [lon_so, lat_so], [lon_so, lat_no]]],4326)
   end
   
   protected
