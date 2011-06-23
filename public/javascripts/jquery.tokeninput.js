@@ -209,7 +209,6 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
                         var dropdown_item = null;
                         
                         if(settings.allowCustomEntry == true) {
-
                             if(event.keyCode === KEY.DOWN) {
                                 if($(selected_dropdown_item).length) {
                                     if($(selected_dropdown_item).next().length) {
@@ -261,7 +260,7 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
 
                 case KEY.BACKSPACE:
                     previous_token = input_token.prev();
-
+										
                     if(!$(this).val().length) {
                         if(selected_token) {
                             delete_token($(selected_token));
@@ -294,7 +293,6 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
                 case KEY.ENTER:
                 case KEY.NUMPAD_ENTER:
                 case KEY.COMMA:
-                    
                     if(event.keyCode == KEY.TAB && !$(input_box).val().length) {
                         hide_dropdown();
                         $(this).blur();
@@ -305,7 +303,7 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
                         add_token($(selected_dropdown_item));
                     }
                     
-                    if(settings.allowCustomEntry == true && $.trim($(input_box).val()) != '') {
+                    if(settings.allowCustomEntry == true && $.trim($(input_box).val()) != '' && !dropdown.is(':visible')) {
                         add_token($(input_box).val());
                     }
                     
