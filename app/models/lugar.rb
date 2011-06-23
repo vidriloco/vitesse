@@ -53,7 +53,7 @@ class Lugar < ActiveRecord::Base
       
       clausula_inclusion = params[:tags_inclusivo].blank? ? "IN" : "= ALL"
       
-      return Lugar.paginate_by_sql("SELECT * FROM lugares
+      return Lugar.paginate_by_sql("SELECT DISTINCT ON (lugares.nombre) * FROM lugares
       LEFT OUTER JOIN lugares_tags ON lugares_tags.lugar_id = lugares.id
       WHERE lugares_tags.tag_id #{clausula_inclusion} (SELECT id FROM tags WHERE id IN (#{params[:tags]}))
       #{geo}", :page => pagina, :per_page => per_page)
@@ -85,7 +85,7 @@ class Lugar < ActiveRecord::Base
       subquery+= " AND" unless nombre.blank?
     end
      
-    return Lugar.paginate_by_sql("SELECT * FROM lugares #{join} WHERE #{subquery} #{nombre} #{dentro_de}", 
+    return Lugar.paginate_by_sql("SELECT DISTINCT ON(lugares.id) * FROM lugares #{join} WHERE #{subquery} #{nombre} #{dentro_de}", 
                                 :page => pagina, :per_page => per_page)
     
   end
@@ -98,7 +98,7 @@ class Lugar < ActiveRecord::Base
     lat_no, lon_no = coordenadas[:no].split(',').map { |n| n.to_f }
     
     # Empezando en (0,0) en sentido de las manecillas del reloj
-    Polygon.from_coordinates([[[lon_so, lat_no], [lon_no, lat_no], [lon_no, lat_so], [lon_so, lat_so]]],4326)
+    Polygon.from_coordinates([[[lon_so, lat_no], [lon_no, lat_no], [lon_no, lat_so], [lon_so, lat_so], [lon_so, lat_no]]],4326)
   end
   
   protected
