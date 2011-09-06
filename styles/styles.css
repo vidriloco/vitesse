@@ -1,0 +1,89 @@
+#header{
+	background: #ccc;
+	height: 50px;
+	width: 100%;
+	
+}
+
+#header h1{
+	float: left;
+}
+
+#userOptions{
+	float: right;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 30px;
+}
+
+#menu{
+	float: right;
+	height: 50px;
+}
+
+#header a{
+	
+}
+	
+#middleBar{
+	background: #333;
+	height: 300px;
+	width: 100%;
+}
+
+#slider{
+	background: yellow;
+	float: right;
+	height: 300px;
+}
+
+#currentEvent{
+	background: #999;
+	float: right;
+	height: 300px;
+	width: 180px;
+}
+
+#menu ul{
+	margin-right: 30px;
+}
+
+#menu ul li{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	padding: 10px;
+	text-align: center;
+	width: 90px;
+}
+
+#menu ul li.active{
+	background: #999;
+	color: #fff;
+}
+	
+#content{
+	
+}
+
+#content p{
+	margin: 20px 15px;
+}
+
+#leftColumn{
+	background: #555;
+	float: left;
+	height: 400px;
+	width: 50%;
+}
+
+#searchTextBox{
+	
+}
+
+#rightColumn{
+	background: #777;
+	float: left;
+	height: 400px;
+	width: 50%;
+}
