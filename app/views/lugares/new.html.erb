@@ -1,0 +1,13 @@
+<h1>Nuevo lugar</h1>
+
+<div class="new-f">
+	
+	<%= render :partial => 'compartidos/errores_forma', 
+						 :locals => {:mensaje => 'Wikicleta no pudo registrar este lugar debido a:', :objeto => @lugar} %>
+	
+	<%= render :partial => 'form', :locals => {:url => lugares_path, :verbo_boton_aceptar => "Publicar"} %>
+</div>
+
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+<% end %>

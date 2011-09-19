@@ -1,0 +1,47 @@
+<%= javascript_include_tag 'geo' %>
+
+<h1>Búsqueda de lugares</h1>
+
+<div class="busqueda radio-5">
+
+	<%= form_tag(busqueda_resultados_lugares_path) do %>
+	
+		<div class="field">
+			<%= label_tag 'con nombre:' %><br/>
+			<%= text_field_tag 'busqueda[nombre]', nil, :size => 50 %>
+		</div>
+		
+		<div class="bloque radio-5">
+			<div class="field">
+				<%= label_tag 'con palabras clave:' %><br/>
+				<%= text_field_tag 'busqueda[tags]' %>    
+		  </div>
+			
+			<div>
+				<%= check_box_tag 'busqueda[tags_inclusivo]' %>
+				<%= label_tag 'Sólo lugares que tengan todas las palabras clave anteriores' %>
+			</div>
+		</div>
+		<br/>
+		<div class="bloque radio-5">
+			<div class="field">
+				<p>Localizar todos los lugares que esten dentro del área visible del mapa</p>
+				<label>Ajustar mapa a mí posición actual:</label>&nbsp;&nbsp;<%= link_to 'Ajustar', '#', :class => 'pregunta-pos boton amarillo' %>
+				
+				<div id="mapa-editable"><p></p></div>
+		
+		
+				<%= hidden_field_tag 'busqueda[coordenadas[so]]' %>
+				<%= hidden_field_tag 'busqueda[coordenadas[no]]' %>
+			</div>
+		</div>
+		<br/>
+		<%= submit_tag 'Buscar', :class => "busqueda-mapa as-link azul boton" %>
+		<br/>
+	<% end %>
+
+</div>
+
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+<% end %>

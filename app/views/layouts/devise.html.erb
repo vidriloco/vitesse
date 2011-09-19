@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>Wikicleta : Rueda por tu ciudad</title>
+  		<%= stylesheet_link_tag :defaults, :tokeninput, 'devise'  %>
+			
+  		<%= javascript_include_tag :defaults, 'jquery.tokeninput', :extensions %>
+			<% if Rails.env=="test"%>
+				<%= javascript_include_tag :testing %>
+			<% end %>
+						
+  		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		
+		<h1 class="cleta">Wikicleta</h1>
+		
+					
+		<%= yield %>		
+		
+		
+	</body>
+</html>

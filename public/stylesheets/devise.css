@@ -1,0 +1,57 @@
+body { background-color: #12223D; overflow: hidden }
+
+h2 {
+	font-size: 30px;
+	color: #88CEF1;
+	text-align: center;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+	             0px 8px 13px rgba(0,0,0,0.1),
+	             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+h1.cleta {
+	font-size: 60px; 
+	color: white;
+	font-weight: bold;
+	text-shadow: 0px 15px 5px rgba(0,0,0,0.1),
+							 10px 20px 5px rgba(0,0,0,0.05),
+							 -10px 20px 5px rgba(0,0,0,0.05);
+	width:100%;
+	height: 50px;
+	padding:50px 0px;
+	text-align: center;
+	background-color: #2E567C;
+}
+
+.bloque {
+	margin: 0px auto 0px auto;
+	width: 80%;
+	text-align: center;
+}
+
+.bloque label {
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+}
+
+.bloque .input-text-adornado {
+	height: 30px;
+	margin-top: 10px;
+	padding: 5px;
+	background-color:#F0EDA6;
+	border:none;
+	font-size: 16px;
+}
+
+.bloque .separador {
+	margin: 0px auto 0px auto;
+	padding-top: 20px;
+	border-top: 2px solid #476180;
+	width: 20%;
+}
+
+.en-caja-foot {
+	width: 10%;
+	margin: 5% auto 0 auto;
+}

@@ -1,0 +1,16 @@
+<h2>¿Has olvidado tu contraseña?</h2>
+
+<div class="bloque">
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	  <p><%= f.label :email %><br />
+	  <%= f.email_field :email, :class => "radio-5 input-text-adornado" %></p>
+		
+		<br/>
+	  <p><%= f.submit "Enviarme instrucciones", :class => "as-link boton rosa largo" %></p>
+	<% end %>
+	
+	<%= render :partial => "usuarios/shared/links" %>
+</div>
+

@@ -1,0 +1,33 @@
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', root_path, :class => "boton azul" %>
+<% end %>
+
+<% if @lugares.empty? %>
+	<div class="vacio">
+		<p>Por ahora no hay lugares registrados</p>
+		<%= link_to 'Registra uno', new_lugar_path, :class => "boton azul" %>
+	</div>
+	
+<% else %>
+	<% content_for :acciones do %>
+		<%= link_to 'Registrar nuevo', new_lugar_path, :class => "boton control" %>
+		<%= link_to 'Búsqueda', busqueda_lugares_path, :class => "boton verde" %>
+	<% end %>
+	
+	<div id="mapa-pasivo"></div>
+	<div class="content on-2 columns same-height">
+		<div class="column fixed" style="width: 60%">
+			<h1>Listando lugares<h1>
+		</div>
+		<div class="column fixed auxiliares" style="width: 35%">
+			<%= link_to 'Más recientes', '#', :class => 'boton sobrio negro reciente-act' %>	
+			
+		</div>
+	</div>
+	
+	<div class="listado recientes">
+		<%= render @lugares %>
+	</div>
+	
+	<%= will_paginate @lugares, :previous_label => "Anterior", :next_label => "Siguiente" %>
+<% end %>

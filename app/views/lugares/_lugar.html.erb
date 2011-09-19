@@ -1,0 +1,10 @@
+<div class="lugar radio-5">
+	<span class="nombre"><%= lugar.nombre %></span>
+	<span class="controles">
+		<%= link_to 'ver en mapa', '#', :class => 'boton amarillo pos-en-mapa' %>
+		<%= link_to 'detalles', lugar_path(lugar), :class => 'boton azul' %>
+	</span>
+	
+	<%= hidden_field_tag "lat", lugar.coordenadas.lat %>
+	<%= hidden_field_tag "lon", lugar.coordenadas.lon %>
+</div>

@@ -1,0 +1,22 @@
+<div id="header">
+  <div id="logo">
+		<p>Wikicleta</p>
+	</div>
+  <ul id="cuenta" class="radio-7">
+    <div class="oculto" id="con-sesion"></div>
+    <li id="login">
+			<% if usuario_signed_in? %>
+				<%= link_to 'Cerrar sesión', destroy_usuario_session_path %>
+			<% else %>
+				<%= link_to 'Iniciar sesión', new_usuario_session_path %>
+			<% end %>
+		</li>
+  </ul>
+  <ul id="secciones">
+    <li><%= link_to 'Lugares', lugares_path, :class => "explorar" %></li>
+		<li><%= link_to 'Rutas', '', :class => "explorar" %></li>
+		<li><%= link_to 'Bicibus', '', :class => "explorar" %></li>
+		<li><%= link_to 'Rodadas', '', :class => "explorar" %></li>
+		<li><%= link_to 'Comunidad', '', :class => "explorar" %></li>
+  </ul>
+</div>

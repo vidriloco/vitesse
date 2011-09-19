@@ -1,0 +1,44 @@
+<%= content_for :messages_and_alerts do %>
+	<% unless notice.blank? %>
+		<p class="notice"><%= notice %></p>
+	<% end %>
+	<% unless alert.blank? %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
+<% end %>
+
+<h1><%= @lugar.nombre %></h1>
+
+<div class="tags radio-5">
+	<% @lugar.tags.each do |tag| %>
+		<span class="radio-5"><%= tag.contenido %></span>
+	<% end %>
+</div>
+
+<div class="bubble radio-7-top">
+	<%= render 'basic_details' %>
+    <div style="padding-left: 2em; magin-botom: 0.5em; margin-top: 0.5em;">
+        <a href="http://twitter.com/share" class="twitter-share-button"
+            data-url="http://wikicleta.mx"
+            data-count="vertical"
+            data-via="wikicleta"
+            style="margin-left: 1em;"
+            data-text="Mira este lugar en Wikicleta">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwikicleta.mx&amp;send=false&amp;layout=box_count&amp;width=225&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=60"
+            scrolling="no"
+            frameborder="0"
+            style="left-margin: 10px;border:none; overflow:hidden; width:225px; height:62px;"
+            allowTransparency="true"></iframe>
+    </div>
+</div>
+<div class="bubble-base">
+	<%= link_to 'Descripción', '#' , :class => "radio-5" %>
+	<%= link_to 'Fotos', '#' , :class => "radio-5" %>
+	<%= link_to 'Comentarios', '#' , :class => "radio-5" %>
+</div>
+
+<% content_for :acciones do %>
+	<%= link_to 'Atrás', lugares_path, :class => "boton azul" %>
+	<%= link_to 'Modificar', edit_lugar_path(@lugar), :class => "boton sobrio" %>
+	<%= link_to 'Eliminar', confirm_destroy_lugar_path(@lugar), :class => "boton rojo" %>
+<% end %>
