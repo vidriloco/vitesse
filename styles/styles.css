@@ -12,6 +12,10 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#393939', endColorstr='#000'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#393939), to(#000)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #393939,  #000); /* for firefox 3.6+ */ 
+
+	position: fixed;
+	top: 0;
+	z-index: 97687568750;
 }
 
 #header h1{
@@ -49,11 +53,11 @@ body{
 #header a{
 	
 }
-	
+
 #middleBar{
 	background: red;
 	height: 404px;
-	margin: 0 auto;
+	margin: 50px auto 0;
 	width: 1162px;
 	
 	-moz-box-shadow: 0px 0px 15px #000;
@@ -113,9 +117,8 @@ body{
 }
 
 #menu ul li.active{
-	background: #333;
+//	background: #333;
 	color: #fff;
-
 	-moz-box-shadow:inset 0 0 10px #000;
 	-webkit-box-shadow:inset 0 0 10px #000;
 	box-shadow:inset 0 0 10px #000;
@@ -145,4 +148,33 @@ body{
 	float: left;
 	height: 400px;
 	width: 50%;
+}
+
+#placesHome {
+	background: #fff;
+}
+
+#placesHome li{
+	height: 100px;
+}
+#placesHome div.placesItem{
+	margin: 5px 0 0;
+}
+#placesHome div.placesItem img{
+	float: left;
+	height: 90px;
+	width: 90px;
+}
+#placesHome div.placesItem h3{
+	margin: 10px 0 5px 10px;
+}
+#placesHome div.placesItem p{
+	
+}
+.rating{
+	
+}
+.rating img{
+	height: 20px!important;
+	width: 20px!important;
 }
