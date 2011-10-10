@@ -21,6 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
+			<string>file://localhost/Users/JuweTakeheshi/Documents/Wikicleta/vitesse/script</string>
 			<string>file://localhost/Users/JuweTakeheshi/Documents/Wikicleta/vitesse/styles</string>
 		</array>
 	</dict>
@@ -47,6 +48,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/JuweTakeheshi/Documents/Wikicleta/vitesse/index.html</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/JuweTakeheshi/Documents/Wikicleta/vitesse/script/currentEventMap.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

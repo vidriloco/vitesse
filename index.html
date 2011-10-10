@@ -5,6 +5,55 @@
 	<link rel="stylesheet" href="styles/styles.css" type="text/css" />
 	<link rel="stylesheet" href="styles/slider.css" type="text/css" />
 	<script type="text/javascript" src="script/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+var poly;
+var map;
+
+function initialize() {
+  var chicago = new google.maps.LatLng(19.396659,-99.141655);
+  var myOptions = {
+    zoom: 14,
+    center: chicago,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById('currentEventMap'), myOptions);
+
+  var polyOptions = {
+    strokeColor: '#000000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+  }
+  poly = new google.maps.Polyline(polyOptions);
+  poly.setMap(map);
+
+  // Add a listener for the click event
+  google.maps.event.addListener(map, 'click', addLatLng);
+}
+
+/**
+ * Handles click events on a map, and adds a new point to the Polyline.
+ * @param {MouseEvent} mouseEvent
+ */
+function addLatLng(event) {
+
+  var path = poly.getPath();
+
+  // Because path is an MVCArray, we can simply append a new coordinate
+  // and it will automatically appear
+  path.push(event.latLng);
+
+  // Add a new marker at the new plotted point on the polyline.
+  var marker = new google.maps.Marker({
+    position: event.latLng,
+    title: '#' + path.getLength(),
+    map: map
+  });
+}
+
+</script>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
@@ -70,7 +119,7 @@
 		});
 	</script>
 </head>
-<body>
+<body onload="initialize()">
 	<div id="header">
 
 		<div id="userOptions">
@@ -116,7 +165,9 @@
 		
 		<!--Slider Ends-->
 		
-		<div id="currentEvent"></div>
+		<div id="currentEvent">
+			<div id="currentEventMap"></div>
+		</div>
 		
 	</div>
 
@@ -132,48 +183,48 @@
 			<ul id="placesHome">
 				<li>
 					<div class="placesItem">
-						<img src="" />
+						<img src="images/placeIcon.png" />
 						<h3>La Cebolla Morada</h3>
 						<p>Restaurante</p>
 						
 						<div class="rating">
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
 						</div>
 					</div>
 				</li>
 				
 				<li>
 					<div class="placesItem">
-						<img src="" />
+						<img src="images/placeIcon.png" />
 						<h3>La Cebolla Morada</h3>
 						<p>Restaurante</p>
 						
 						<div class="rating">
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
 						</div>
 					</div>
 				</li>
 				
 				<li>
 					<div class="placesItem">
-						<img src="" />
+						<img src="images/placeIcon.png" />
 						<h3>La Cebolla Morada</h3>
 						<p>Restaurante</p>
 						
 						<div class="rating">
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
-							<img src="images/star.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
+							<img src="images/rankingStarActive.png" />
 						</div>
 					</div>
 				</li>
